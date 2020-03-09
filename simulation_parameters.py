@@ -32,21 +32,23 @@ simParameters['record_length'] = False
 simParameters['steady_state_analysis'] = False
 
 
-# Key simulation parameters
-simParameters['EB'] = 0
-#EB_growth_speed = np.array([[0, 1.68],[0.02, 2.79],[0.05, 2.79],[0.1, 3.36]])
-if simParameters['EB'] == 0: #set growth speed (only used for our special case... remove later)
-#    growth_speed = 1.68
-#    kBC = 0.07
-#    D_tip = 3720  
-    
-    kBC = 0.1
-    D_tip = 2000   
-    growth_speed = 1.8
+## Key simulation parameters
+simParameters['EB'] = 0 # Set EB concentration [0, 0.02, 0.05, 0.1]
+
+# Best fitting values for hydrolysis rate (kBC) and tip noise (D_tip):
+# 0 nM EB:     0.07 and 3720
+# 20 nM EB:    0.20 and 3400
+# 50 nM EB:    0.24 and 3420
+# 100 nM EB:   0.39 and 3100
+
+if simParameters['EB'] == 0: 
+    growth_speed = 1.68
+    kBC = 0.07
+    D_tip = 3720  
 elif simParameters['EB'] == 0.02:
     growth_speed = 2.79 
     kBC = 0.20
-    D_tip = 3600  
+    D_tip = 3400  
 elif simParameters['EB'] == 0.05:
     growth_speed = 2.79 
     kBC = 0.24
@@ -54,23 +56,17 @@ elif simParameters['EB'] == 0.05:
 elif simParameters['EB'] == 0.1:
     kBC = 0.39
     D_tip = 3100
-    #growth_speed = 3.36 #µm/min
     growth_speed = 3.72
-print('growth speed set to: ', growth_speed)
     
-simParameters['growth_speed'] = growth_speed
-#simParameters['growth_speed'] = 1.5 #µm/min
+#print('growth speed set to: ', growth_speed)
+    
 simParameters['dL_dimer'] = 0.008/13 # Eukaryotic tubulin dimer length in um
 #simParameters['dL_dimer'] = 0.008/5 # Prokaryotic tubulin dimer length in um
-simParameters['growth_rate_one'] = growth_speed/(60*simParameters['dL_dimer']) #rate of one dimer per s
-## Best values for kBC and D_tip:
-# 0 nM EB:      0.08 and 2900 OR 0.07 and 3720 || 0.07 and 3720
-# 20 nM EB:     0.18 and 3500 OR 0.19 and 3580 || 0.20 and 3400
-# 50 nM EB:     0.28 and 3000 OR 0.23 and 3840 || 0.24 and 3420
-# 100 nM EB:    0.50 and 1700 OR 0.53 and 2100 || 0.39 and 3100
 
+# Set main parameters
 N_unstable = int(15);
-
+simParameters['growth_speed'] = growth_speed #µm/min
+simParameters['growth_rate_one'] = growth_speed/(60*simParameters['dL_dimer']) #rate of one dimer per s
 simParameters['kBC'] = kBC #s^-1 
 simParameters['D_tip'] = D_tip #tip diffusion nm^2 /s
 
@@ -128,7 +124,7 @@ simParameters['P_max'] = 0.05 # maximum probability of hydrolysis event during o
 
 simParameters['tip_window'] = 1.0 #1um window for comet
 
-# Nucleation correction
+# Nucleation correction:
 simParameters['nucleation_threshold'] = 400 #400 subunits is equal to 250 nm (~ 2 pixels)
 
 #memory and imaging options:
@@ -143,6 +139,3 @@ simParameters['washout_time'] = 160 # in seconds
 #screening options:
 simParameters['shift_ks_contact'] = 0.01
 simParameters['shift_ks_cat'] = 0.01
-
-# EB binding characteristics
-simParameters['EB_KD'] = 122 # nM (Roth et al., 2018)
