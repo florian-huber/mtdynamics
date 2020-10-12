@@ -7,6 +7,7 @@ Work done by:
 - Marileen Dogterom
 
 ## Simulation code
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/florian-huber/mtdynamics/Build)](https://img.shields.io/github/workflow/status/florian-huber/mtdynamics/Build)
 [![Liscence](https://img.shields.io/github/license/florian-huber/mtdynamics)](https://github.com/florian-huber/mtdynamics)
 [![PyPI](https://img.shields.io/pypi/v/mtdynamics?color=blue)](https://pypi.org/project/mtdynamics/0.1.1/)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu)
