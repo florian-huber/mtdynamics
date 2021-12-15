@@ -6,6 +6,13 @@ Work done by:
 - Experiments run by: Maurits Kok and Svenja-Marei Kalisch
 - Marileen Dogterom
 
+## Reference / citation
+You can read more about this simulation in:  
+[Kok, Huber, Kalisch, Dogterom, 2021, bioRxiv, DOI: 10.1101/2021.12.07.471417](https://doi.org/10.1101/2021.12.07.471417)
+
+Please also cite this article if use the present code or results. Thanks!
+
+
 ## Simulation code
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/florian-huber/mtdynamics/Build)](https://img.shields.io/github/workflow/status/florian-huber/mtdynamics/Build)
 [![Liscence](https://img.shields.io/github/license/florian-huber/mtdynamics)](https://github.com/florian-huber/mtdynamics)
