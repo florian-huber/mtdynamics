@@ -7,7 +7,7 @@ setup(
     name="mtdynamics", # Replace with your own username
     version="0.1.1",
     author="Florian Huber and Maurits Kok",
-    author_email="f.huber@esciencecenter.nl",
+    author_email="florian.huber@hs-duesseldorf.de",
     description="MT dynamics simulation",
     long_description=long_description,
     long_description_content_type="text/markdown",
