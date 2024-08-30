@@ -10,7 +10,7 @@ Work done by:
 You can read more about this simulation in:  
 [Kok, Huber, Kalisch, Dogterom, 2021, bioRxiv, DOI: 10.1101/2021.12.07.471417](https://doi.org/10.1101/2021.12.07.471417)
 
-Please also cite this article if use the present code or results. Thanks!
+Please also cite this article if you use the present code or results. Thanks!
 
 
 ## Simulation code
@@ -26,11 +26,11 @@ The code consits of the main simulation code (**simulation_main.py** and **simul
 Python version 3.6 or higher.
 
 ### Installation
-If you work with Anaconda you can create an own environment for ``mtdynamics`` by running the following commands:
+If you work with Anaconda you can create your own environment for ``mtdynamics`` by running the following commands:
 
 ```
 # install mtdynamics in a new virtual environment to avoid dependency clashes
-conda create --name mtdynamics python=3.7
+conda create --name mtdynamics python=3.9
 conda activate mtdynamics
 pip install mtdynamics
 pip install jupyter  # Optional, if you want to run jupyter notebooks from this environment
@@ -43,11 +43,11 @@ pip install mtdynamics
 ```
 
 ## Runing the simulation
-Jupyter notebook(s) are provided to illustrate how to run the simlation. They can be found in the folder ``\notebooks``.
+Jupyter notebook(s) are provided to illustrate how to run the simulation. They can be found in the folder ``\notebooks``.
 
 ## Making a new release
 
-To create release you need write permission on the repository.
+To create a release you need to have writing permission on the repository.
 
 1. Check author list in `citation.cff` file.
 1. Update version in ``setup.py`` and ``CHANGELOG.md``.
@@ -57,4 +57,4 @@ To create release you need write permission on the repository.
 1. Fill version, title and description field
 1. Press the Publish Release button
 
-A GitHub action will run which will publish the new version to [pypi](https://pypi.org/).
+A GitHub action will run to publish the new version to [pypi](https://pypi.org/).
