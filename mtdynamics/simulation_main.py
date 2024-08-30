@@ -44,7 +44,7 @@ def mt_run(simPa):
 
     L_seed = int(np.ceil(simPa.tip_window/simPa.dL_dimer)) #seed
     L = L_seed
-    MT = np.ones(L, dtype=np.int) # Python! so MT[L-1] = MT at position L
+    MT = np.ones(L, dtype=np.int16)
     current_cap_end = L_seed
     MT[0:L_seed] = 5  # Set to seed state
 
@@ -67,7 +67,7 @@ def mt_run(simPa):
     catastrophe_at_barrier = []
     catastrophe_washout = []
     EB_comet_sum = []
-    EB_profile_intermediate = np.zeros(L_seed, dtype=np.int)
+    EB_profile_intermediate = np.zeros(L_seed, dtype=np.int16)
     EB_profiles = []
     show_fraction = simPa.show_fraction
     #show_begin = simPa.min_length_begin
@@ -86,7 +86,7 @@ def mt_run(simPa):
         # Reset everything:
         L = L_seed
         Lnew = L
-        MT = np.ones(L, dtype=np.int)
+        MT = np.ones(L, dtype=np.int16)
         current_cap_end = L_seed
         MT[0:L_seed] = 5 # set state Seed
         growth = np.zeros(1)
@@ -185,7 +185,7 @@ def mt_run(simPa):
 
                         #  Change size of MT array when necessary
                         if Lnew > len(MT):
-                            MT = np.append(MT, np.zeros(Lnew - L + 500, dtype=np.int))
+                            MT = np.append(MT, np.zeros(Lnew - L + 500, dtype=np.int16))
 
                         # Option to simlate growth against rigid barrier
                         if simPa.barrier:
@@ -199,11 +199,11 @@ def mt_run(simPa):
                                 # Rigid barrier --> Still possible to grow, however only till barrier.
                                 Lnew = simPa.barrier
 
-                                # Alternative: Brownian ratchet-like stalling:
-                                # Spring like response at barrier
-                                #F_barrier = simPa.k_barrier*(Lnew - barrier)
-                                # Mogilner: V=Vmax*exp(force*dl/(k_b*T)), k_bT=4.1pN/nm divide by 8nm/dimer
-                                #Lnew = L + (Lnew-L)*(np.random.rand(1)< np.exp(- F_barrier*1000*simPa.dL_dimer/4.1))[0]
+                                # # Alternative: Brownian ratchet-like stalling:
+                                # # Spring like response at barrier
+                                # F_barrier = simPa.k_barrier*(Lnew - barrier)
+                                # # Mogilner: V=Vmax*exp(force*dl/(k_b*T)), k_bT=4.1pN/nm divide by 8nm/dimer
+                                # Lnew = L + (Lnew-L)*(np.random.rand(1)< np.exp(- F_barrier*1000*simPa.dL_dimer/4.1))[0]
                                 if Lnew > L:
                                     MT[L:Lnew] = 2 #start with "B" state
                             else:
